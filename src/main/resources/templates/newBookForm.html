@@ -7,8 +7,11 @@
 <body>
 <form action='/book/new' method='POST'>
     <label>Title: <input th:field="${book.title}"></label><br />
+    <p th:errors="${book.title}"></p>
     <label>Author: <input th:field="${book.author}"></label><br />
+    <p th:errors="${book.author}"></p>
     <label>ISBN: <input th:field="${book.isbn}"></label><br />
+    <p th:errors="${book.isbn}"></p>
     <label>Type: <select th:field="${book.type}">
         <option th:each="type : ${types}"
                 th:value="${type}"

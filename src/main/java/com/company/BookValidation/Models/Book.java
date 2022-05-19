@@ -1,10 +1,18 @@
 package com.company.BookValidation.Models;
 
+import javax.validation.constraints.NotBlank;
+
 public class Book {
 
+    @NotBlank(message = "Book must have a Title.")
     private String title;
+
+    @NotBlank(message = "Book must have an Author")
     private String author;
+
+    @NotBlank(message = "Book must have an ISBN")
     private String isbn;
+
     private BookType type;
 
     public Book (){

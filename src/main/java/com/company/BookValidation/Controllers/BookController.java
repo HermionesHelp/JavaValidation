@@ -5,7 +5,10 @@ import com.company.BookValidation.Models.BookType;
 import com.company.BookValidation.dataRepositores.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "/book")
@@ -30,7 +33,12 @@ public class BookController {
 
     // POST /book/new
     @PostMapping(value = "/new")
-    public String addBook(@ModelAttribute Book newBook, Model model) {
+    public String addBook(@ModelAttribute @Valid Book newBook, Errors errors, Model model) {
+
+        if (errors.hasErrors()){
+            return "newBooKForm";
+        }
+
         BookRepository.addBook(newBook);
         model.addAttribute("bookName", newBook.getTitle());
         return "bookAdded";
