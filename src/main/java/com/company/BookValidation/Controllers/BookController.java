@@ -1,6 +1,7 @@
 package com.company.BookValidation.Controllers;
 
 import com.company.BookValidation.Models.Book;
+import com.company.BookValidation.Models.BookType;
 import com.company.BookValidation.dataRepositores.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,19 +22,15 @@ public class BookController {
 
     // GET /book/new -> returns an HTML form
     @GetMapping(value = "/new")
-    public String addBookForm() {
+    public String addBookForm(Model model) {
+        model.addAttribute(new Book());
+        model.addAttribute("types", BookType.values());
         return "newBookForm";
     }
 
     // POST /book/new
     @PostMapping(value = "/new")
     public String addBook(@ModelAttribute Book newBook, Model model) {
-        // We no longer have to create a hashMap representation of our book. We can use our Book model
-//        HashMap<String, String> newBook = new HashMap<>();
-//        newBook.put("title", title);
-//        newBook.put("author", author);
-//        newBook.put("ISBN", isbn);
-        // calls helper method that adds the new HashMap to the static ArrayList of HashMaps
         BookRepository.addBook(newBook);
         model.addAttribute("bookName", newBook.getTitle());
         return "bookAdded";
