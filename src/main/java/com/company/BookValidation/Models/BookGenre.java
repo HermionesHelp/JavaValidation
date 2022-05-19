@@ -1,6 +1,6 @@
 package com.company.BookValidation.Models;
 
-public enum BookType {
+public enum BookGenre {
 
     FICTION("Fiction"),
     NONFICTION("Non-Fiction"),
@@ -9,7 +9,7 @@ public enum BookType {
 
     private final String displayName;
 
-    BookType(String displayName){
+    BookGenre(String displayName){
         this.displayName = displayName;
     }
 

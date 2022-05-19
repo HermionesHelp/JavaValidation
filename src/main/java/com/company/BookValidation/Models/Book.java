@@ -13,17 +13,17 @@ public class Book {
     @NotBlank(message = "Book must have an ISBN")
     private String isbn;
 
-    private BookType type;
+    private BookGenre genre;
 
     public Book (){
 
     }
 
-    public Book(String title, String author, String isbn, BookType type) {
+    public Book(String title, String author, String isbn, BookGenre type) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.type = type;
+        this.genre = type;
     }
 
     public String getTitle() {
@@ -50,11 +50,11 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public BookType getType() {
-        return type;
+    public BookGenre getGenre() {
+        return genre;
     }
 
-    public void setType(BookType type) {
-        this.type = type;
+    public void setGenre(BookGenre genre) {
+        this.genre = genre;
     }
 }

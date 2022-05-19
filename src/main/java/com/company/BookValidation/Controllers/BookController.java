@@ -1,7 +1,7 @@
 package com.company.BookValidation.Controllers;
 
 import com.company.BookValidation.Models.Book;
-import com.company.BookValidation.Models.BookType;
+import com.company.BookValidation.Models.BookGenre;
 import com.company.BookValidation.dataRepositores.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +27,7 @@ public class BookController {
     @GetMapping(value = "/new")
     public String addBookForm(Model model) {
         model.addAttribute(new Book());
-        model.addAttribute("types", BookType.values());
+        model.addAttribute("genre", BookGenre.values());
         return "newBookForm";
     }
 
