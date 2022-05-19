@@ -9,14 +9,16 @@
     <label>Title: <input th:field="${book.title}"></label><br />
     <p th:errors="${book.title}"></p>
     <label>Author: <input th:field="${book.author}"></label><br />
-    <p th:errors="${book.author}"></p>
     <label>ISBN: <input th:field="${book.isbn}"></label><br />
-    <p th:errors="${book.isbn}"></p>
-    <label>Type: <select th:field="${book.genre}">
+    <label>Genre: <select th:field="${book.genre}">
         <option th:each="genre : ${genres}"
                 th:value="${genre}"
                 th:text="${genre.displayName}"></option>
-
+    </select></label><br />
+    <label>Type: <select th:field="${book.type}">
+        <option th:each="type : ${types}"
+                th:value="${type}"
+                th:text="${type.displayName}"></option>
     </select></label><br />
     <input type='submit'>
 </form>

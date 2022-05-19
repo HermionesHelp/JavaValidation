@@ -7,23 +7,24 @@ public class Book {
     @NotBlank(message = "Book must have a Title.")
     private String title;
 
-    @NotBlank(message = "Book must have an Author")
     private String author;
 
-    @NotBlank(message = "Book must have an ISBN")
     private String isbn;
 
     private BookGenre genre;
+
+    private BookType type;
 
     public Book (){
 
     }
 
-    public Book(String title, String author, String isbn, BookGenre type) {
+    public Book(String title, String author, String isbn, BookGenre genre, BookType type) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.genre = type;
+        this.genre = genre;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -56,5 +57,13 @@ public class Book {
 
     public void setGenre(BookGenre genre) {
         this.genre = genre;
+    }
+
+    public BookType getType() {
+        return type;
+    }
+
+    public void setType(BookType type) {
+        this.type = type;
     }
 }
