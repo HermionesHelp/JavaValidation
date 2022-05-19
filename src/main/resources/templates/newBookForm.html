@@ -10,9 +10,9 @@
     <label>Author: <input th:field="${book.author}"></label><br />
     <label>ISBN: <input th:field="${book.isbn}"></label><br />
     <label>Type: <select th:field="${book.type}">
-        <option th:each="type : ${types}"
-                th:value="${type}"
-                th:text="${type.displayName}"></option>
+        <option th:each="genre : ${genres}"
+                th:value="${genre}"
+                th:text="${genre.displayName}"></option>
 
     </select></label><br />
     <input type='submit'>
