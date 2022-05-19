@@ -24,7 +24,7 @@ public class BookController {
     @GetMapping(value = "/new")
     public String addBookForm(Model model) {
         model.addAttribute(new Book());
-        model.addAttribute("types", BookGenre.values());
+        model.addAttribute("genres", BookGenre.values());
         return "newBookForm";
     }
 
